@@ -1,0 +1,63 @@
+<% layout('./layouts/boilerplate.ejs') -%>
+
+<div class="container mt-5" style="max-width:600px;">
+    <h2 class="mb-3">Edit Your Profile</h2>
+
+    <form action="/profile/edit" method="POST">
+
+        <!-- Show current image -->
+        <% if(user.profileImage) { %>
+            <div class="mb-3 text-center">
+                <img src="<%= user.profileImage %>"
+                     alt="Profile"
+                     class="rounded-circle"
+                     style="width:120px; height:120px; object-fit:cover;">
+            </div>
+        <% } %>
+
+        <div class="mb-3">
+            <label class="form-label">Profile Image URL</label>
+            <input class="form-control"
+                   type="text"
+                   name="profileImage"
+                   placeholder="Enter image link"
+                   value="<%= user.profileImage %>">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input class="form-control"
+                   type="text"
+                   name="username"
+                   value="<%= user.username %>"
+                   required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Date of Birth</label>
+            <input class="form-control"
+                   type="date"
+                   name="dob"
+                   value="<%= user.dob ? user.dob.toISOString().substr(0,10) : '' %>">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input class="form-control"
+                   type="text"
+                   name="phone"
+                   value="<%= user.phone %>">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Bio / About Me</label>
+            <textarea class="form-control"
+              name="bio"
+              rows="4"
+              placeholder="Tell something about yourself..."><%= user.bio %></textarea>
+        </div>
+
+
+        <button class="btn btn-success">Save Changes</button>
+    </form>
+</div>

@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar mb-2">
+  <div class="container-fluid">
+    
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">Collegia</a>
+
+    <!-- Toggler button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <!-- Left nav items -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events/new">Create</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/events">Events</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+            Category
+          </a>
+          <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/events/category?type=Tech">Tech</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Cultural">Cultural</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Sports">Sports</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Non-Cultural">Non-Cultural</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Workshop">Workshop</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Seminar">Seminar</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Webinar">Webinar</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Entrepreneurship">Entrepreneurship</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Networking">Networking</a></li>
+            <li><a class="dropdown-item" href="/events/category?type=Competition">Competition</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/events/category?type=Other">Other</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Center search (large screens) -->
+      <form method="GET" action="/events/search" class="d-none d-lg-flex mx-auto search-form">
+        <input class="form-control me-2" type="search" placeholder="Search" name="q">
+        <button class="btn" type="submit">Search</button>
+      </form>
+
+     <!-- Right side User Dropdown -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link user-icon rounded-circle d-flex align-items-center justify-content-center" 
+            href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user"></i>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+            <% if(!currentUser) { %>
+              <li><a class="dropdown-item" href="/login">Log in</a></li>
+              <li><a class="dropdown-item" href="/signup">Sign up</a></li>
+            <% } %>
+
+            <% if(currentUser) { %>
+              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            <% } %>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,321 @@
+/* ======================== Page Body ======================== */
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+}
+
+/* ======================== Navbar ======================== */
+.custom-navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 0.5rem 1rem;
+}
+
+/* Brand */
+.navbar-brand {
+  color: #22c55e !important;
+  font-weight: 600;
+}
+
+.navbar-brand:hover {
+  color: #16a34a !important;
+}
+
+/* All nav links */
+.navbar-nav .nav-link,
+.navbar-nav .dropdown-toggle {
+  color: #1a1a1a !important;   /* ✅ Fix: visible on white */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+/* Active + hover */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #22c55e !important;
+}
+
+/* Dropdown menu */
+.custom-dropdown {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+}
+
+.custom-dropdown .dropdown-item {
+  color: #1a1a1a !important;   /* ✅ Fix: visible items */
+  transition: background 0.3s, color 0.3s;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #22c55e;
+  color: #fff !important;
+}
+
+/* Divider */
+.dropdown-divider {
+  border-color: #dcdcdc;
+}
+
+/* Mobile toggler icon color */
+.navbar-toggler {
+  border-color: #22c55e;
+}
+
+.navbar-toggler-icon {
+  filter: invert(41%) sepia(83%) saturate(481%) hue-rotate(92deg) brightness(92%) contrast(92%);
+}
+
+/* ======================== Search Form ======================== */
+.search-form input.form-control {
+  background-color: #f1f1f1;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.search-form input.form-control::placeholder {
+  color: #7d7d7d;
+}
+
+.search-form input.form-control:focus {
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+  border: 1px solid #22c55e;
+  outline: none;
+}
+
+.search-form .btn {
+  background-color: #22c55e;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.search-form .btn:hover {
+  background-color: #16a34a;
+}
+
+/* ======================== Footer ======================== */
+.custom-footer {
+  background-color: #f8f8f8;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
+}
+
+.custom-footer h5 {
+  color: #22c55e;
+  margin-bottom: 1rem;
+}
+
+.footer-link {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #22c55e;
+  text-decoration: underline;
+}
+
+.footer-divider {
+  border-color: #dcdcdc;
+}
+
+.social-icons a {
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #22c55e;
+}
+
+/* ======================== Event Card Styling ======================== */
+.custom-event-card {
+  border: 1px solid #dcdcdc;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+}
+
+.custom-event-card:hover {
+  transform: translateY(-3px);
+}
+
+.event-img {
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #dcdcdc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.custom-event-card .card-title {
+  color: #1a1a1a;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ======================== Buttons ======================== */
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Show page Edit/Delete Buttons */
+.card-footer .btn {
+  padding: 0.25rem 0.5rem !important;
+  font-size: 0.75rem !important;
+  transform: none !important;
+}
+
+.card-footer .btn:hover {
+  transform: none !important;
+}
+
+/* Outline Buttons */
+.btn-outline-primary {
+  color: #22c55e;
+  border-color: #22c55e;
+  font-size: 0.8rem;
+}
+
+.btn-outline-primary:hover {
+  background-color: #22c55e;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+/* Category Badge */
+.badge.bg-category {
+  background-color: #e9f7ec;
+  color: #1a1a1a;
+  font-size: 0.8rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.badge.bg-category:hover {
+  background-color: #22c55e !important;
+  color: #fff;
+}
+
+/* ======================== Forms ======================== */
+.container form {
+  background-color: #f8f8f8;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2) !important;
+  transition: all 0.3s;
+}
+
+.form-label {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.form-control,
+.form-select,
+textarea {
+  background-color: #f1f1f1 !important;
+  color: #1a1a1a;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.form-control::placeholder,
+textarea::placeholder {
+  color: #7d7d7d;
+}
+
+.form-control:hover,
+.form-select:hover,
+textarea:hover {
+  background-color: #ededed;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+  outline: none;
+}
+
+.container form .btn {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+.container form .btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ======================== Headings ======================== */
+h2, h3, h4 {
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* ======================== Feedback ======================== */
+.feedback-card {
+  border: 1px solid #dcdcdc;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feedback-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(34, 197, 94, 0.2);
+}
+
+.container hr {
+  border-color: #dcdcdc;
+  margin: 2rem 0;
+}
+
+input, textarea {
+  color: #1a1a1a !important;
+  font-weight: 700;
+}
+
+/* Taller image for show page */
+.event-img-large {
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.m-0 {
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+}

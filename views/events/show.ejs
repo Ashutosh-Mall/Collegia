@@ -1,0 +1,87 @@
+<% layout('./layouts/boilerplate.ejs') -%>
+
+<div class="container my-5">
+
+  <!-- ========== Event Card ========== -->
+  <div class="card custom-event-card shadow-lg mb-5">
+
+    <% if (event.image) { %>
+      <img src="<%= event.image %>" class="card-img-top event-img-large" alt="<%= event.title %>">
+    <% } else { %>
+      <img src="/images/default-event.jpg" class="card-img-top event-img-large" alt="Default Event Image">
+    <% } %>
+
+    <div class="card-body">
+      <h3 class="card-title mb-3 text-center"><%= event.title %></h3>
+      <hr class="mb-4" style="border-color: #1f2733;">
+      <br>
+      <p class="mb-2"><strong>Owned By: </strong><%= event.owner.username %></p>
+
+      <p class="mb-2"><strong>Description:</strong> <%= event.description %></p>
+      <p class="mb-2"><strong>Category:</strong> 
+        <span class="badge bg-category"><%= event.category %></span>
+      </p>
+      <p class="mb-2"><strong>Organizer:</strong> <%= event.organizer %></p>
+      <p class="mb-2"><strong>Location:</strong> <%= event.location %></p>
+
+      <% if (event.tags && event.tags.length) { %>
+        <p><strong>Tags:</strong> <%= event.tags.join(', ') %></p>
+      <% } %>
+    </div>
+    <% if (currentUser && currentUser._id.equals(event.owner._id || event.owner)) { %>
+      <div class="card-footer d-flex justify-content-between align-items-center">
+        <a href="/events/<%= event._id %>/edit" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-pencil-square"></i> Edit Event
+        </a>
+        <form method="POST" action="/events/<%= event._id %>?_method=DELETE" class="m-0">
+          <button type="submit" class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-trash"></i> Delete Event
+          </button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- ========== Feedback Form ========== -->
+  <div class="mb-5" id="comment">
+    <h4 class="mb-3">Add Feedback</h4>
+    <form method="POST" action="/events/<%= event._id %>/feedbacks/comment" class="p-3 rounded">
+      <div class="mb-3">
+        <label for="feedback" class="form-label">Comment:</label>
+        <textarea class="form-control" id="feedback" name="feedback[comment]" rows="3" placeholder="Write your feedback..." required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating (1–5):</label>
+        <input type="number" class="form-control" id="rating" name="feedback[rating]" min="1" max="5" placeholder="Give rating between 1 to 5" required>
+      </div>
+      <button type="submit" class="btn btn-outline-primary">
+        <i class="bi bi-chat-dots"></i> Submit Feedback
+      </button>
+    </form>
+  </div>
+
+  <!-- ========== Feedback List ========== -->
+  <hr class="my-5">
+  <h4 class="mb-3">All Feedbacks</h4>
+  <% if (!event.feedbacks || event.feedbacks.length === 0) { %>
+    <p>No feedback yet. Be the first to comment!</p>
+  <% } else { %>
+    <% event.feedbacks.forEach(f => { %>
+      <div class="feedback-card">
+        <p><strong>User:</strong> <%= f.userName || "Anonymous User" %></p>
+        <p><strong>Rating:</strong> 
+          <% for (let i = 0; i < f.rating; i++) { %>⭐<% } %>
+        </p>
+        <p><strong>Comment:</strong> <%= f.comment %></p>
+        <p><small>Posted on: <%= f.createdAt.toDateString() %></small></p>
+
+        <form method="POST" action="/events/<%= event._id %>/feedbacks/<%= f._id %>?_method=DELETE">
+          <button type="submit" class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-x-circle"></i> Delete Feedback
+          </button>
+        </form>
+      </div>
+    <% }) %>
+  <% } %>
+
+</div>

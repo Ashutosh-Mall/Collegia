@@ -1,0 +1,32 @@
+<% layout('./layouts/boilerplate.ejs') -%>
+<div class="container my-4">
+
+  <!-- List of Events (responsive, minimum 4 cards on large screens) -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <% listOfEvent.forEach(list => { %>
+      <div class="col">
+        <a href="/events/<%= list._id %>" class="text-decoration-none">
+          <div class="card custom-event-card h-100">
+
+            <!-- Event Image -->
+            <% if(list.image) { %>
+              <img src="<%= list.image %>" class="card-img-top event-img" alt="<%= list.title %>">
+            <% } %>
+
+            <div class="card-body">
+              <h5 class="card-title text-body-secondary fs-6"><%= list.title %></h5>
+              <p class="card-text mb-0" ><span class="text-secondary" style="font-size: small;"><%= list.category %></span></p>
+              <p class="card-text mb-0" ><i class="fa-solid fa-alarm-clock text-secondary" style="font-size: small; margin-right: 5px;" ></i><span class="text-secondary" style="font-size: small;"><%= list.date.toLocaleDateString()%></span></p>
+            </div>
+
+            <div class="card-footer text-end">
+              <span class="btn fs-3 text-success"><b>read more</b> <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+
+          </div>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+
+</div>

@@ -1,0 +1,69 @@
+<!-- ✅ SUCCESS TOAST -->
+<% if (success && success.length) { %>
+  <div id="toastMsg"
+       class="shadow-sm position-fixed"
+       style="
+        top: 70px;
+        right: 15px;
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #22c55e;
+        border-left: 4px solid #22c55e;
+        padding: 8px 12px;
+        font-size: 14px;
+        max-width: 260px;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        z-index: 9999;
+       ">
+    <%= success %>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const t = document.getElementById("toastMsg");
+      t.style.opacity = "1";
+    }, 300);
+
+    setTimeout(() => {
+      const t = document.getElementById("toastMsg");
+      t.style.opacity = "0";
+      setTimeout(() => t.remove(), 600);
+    }, 3000);
+  </script>
+<% } %>
+
+<!-- ✅ ERROR TOAST (same behavior, different color) -->
+<% if (error && error.length) { %>
+  <div id="toastMsg"
+       class="shadow-sm position-fixed"
+       style="
+        top: 70px;
+        right: 15px;
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #ef4444;
+        border-left: 4px solid #ef4444;
+        padding: 8px 12px;
+        font-size: 14px;
+        max-width: 260px;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        z-index: 9999;
+       ">
+    <%= error %>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const t = document.getElementById("toastMsg");
+      t.style.opacity = "1";
+    }, 300);
+
+    setTimeout(() => {
+      const t = document.getElementById("toastMsg");
+      t.style.opacity = "0";
+      setTimeout(() => t.remove(), 600);
+    }, 3000);
+  </script>
+<% } %>
